@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: linear-gradient(135deg, #ecfdf5 0%, #f6f7f4 100%);
+  min-height: 100vh;
+  color: #064e3b;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  max-width: 430px;
+  margin: 0 auto;
+  background: white;
+  position: relative;
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-2xl shadow-sm p-4;
+  }
+  .card-elevated {
+    @apply bg-white rounded-2xl shadow-md p-4;
+  }
+  .btn-primary {
+    @apply bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-3 rounded-2xl font-semibold shadow-lg shadow-emerald-200;
+  }
+  .btn-secondary {
+    @apply bg-emerald-50 text-emerald-600 px-4 py-2 rounded-xl font-medium;
+  }
+  .nav-item {
+    @apply flex flex-col items-center gap-1 text-gray-400 text-xs;
+  }
+  .nav-item.active {
+    @apply text-emerald-500;
+  }
+  .mood-btn {
+    @apply text-2xl p-2 rounded-full hover:bg-emerald-50 transition-all cursor-pointer;
+  }
+  .mood-btn.selected {
+    @apply bg-emerald-100 scale-110;
+  }
+  .stat-card {
+    @apply text-center;
+  }
+  .stat-value {
+    @apply text-2xl font-bold text-emerald-600;
+  }
+  .stat-label {
+    @apply text-xs text-gray-500 mt-1;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #10b981;
+  border-radius: 2px;
+}
+
+/* Circular progress */
+.circular-progress {
+  transform: rotate(-90deg);
+}
+.circular-progress circle {
+  transition: stroke-dashoffset 0.5s ease;
+}
